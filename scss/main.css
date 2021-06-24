@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  overscroll-behavior-y: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* MAP */
+#map {
+  height: 80vh;
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: #42484d;
+  color: #fff;
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.3rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: #42484d;
+}
+
+.trening-popup .leaflet-popup-content-wrapper {
+  border-right: 5px solid orange;
+}
+
+.takmicenje-popup .leaflet-popup-content-wrapper {
+  border-right: 5px solid red;
+}
+
+.main {
+  height: 20vh;
+  background-color: #2d3439;
+  color: aliceblue;
+  overflow: hidden;
+}
+
+.main div {
+  float: left;
+}
+
+.main .icon {
+  text-align: center;
+  margin: 65px 15px;
+}
+
+.main .form {
+  display: -ms-grid;
+  display: grid;
+  margin: 25px -160px 25px 80px;
+  padding: 5px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+}
+
+.main .form button {
+  display: none;
+}
+
+.main .form .form__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .form .form__row label {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 20%;
+          flex: 0 0 20%;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.main .form .form__row input,
+.main .form .form__row select {
+  padding: 0.3rem 0.3rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.main .form .form__row input:focus,
+.main .form .form__row select:focus {
+  outline: none;
+}
+
+.main .form .weather input[type='checkbox'] {
+  margin-top: -30px;
+}
+
+.main .form .weather span {
+  padding: 3px;
+}
+
+.main .form .weather span img {
+  width: 50px;
+}
+
+.main .logo {
+  margin: 10px;
+  text-align: center;
+}
+
+.main .copyright {
+  float: right;
+  margin: 60px 15px;
+  text-align: center;
+}
+
+.main .copyright a {
+  text-decoration: none;
+  color: #42484d;
+}
+
+.main .copyright a:hover {
+  color: #fff;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+.main .results {
+  margin-top: 40px;
+  width: 400px;
+  height: 120px;
+  padding: 5px;
+  background-color: #42484d;
+  border-right: solid 3px red;
+  margin: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main .results ul {
+  list-style-type: none;
+}
+
+.main .results .result__details {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.main .results_trening {
+  border-right: solid 3px orange;
+}
+
+.main .results_takmicenje {
+  border-right: solid 3px red;
+}
+
+.main-extend {
+  height: 80vh;
+}
+
+.main-extend .res {
+  height: 55%;
+  overflow-y: scroll;
+}
+
+.main-extend .res::-webkit-scrollbar {
+  width: 0;
+}
+
+.main-extend .results ul {
+  list-style-type: none;
+}
+/*# sourceMappingURL=main.css.map */
