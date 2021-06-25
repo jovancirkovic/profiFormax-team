@@ -9,173 +9,6 @@ const inputTip = document.querySelector('.input_tip');
 const inputPozicija = document.querySelector('.input_pozicija');
 const inputVreme = document.querySelector('.input_vreme');
 const inputKolicina = document.querySelector('.input_kolicina');
-/*
-const vremenskiUslovi = function () {
-  const check1 = document.getElementById('myCheckbox1');
-  const check2 = document.getElementById('myCheckbox2');
-  const check3 = document.getElementById('myCheckbox3');
-  const check4 = document.getElementById('myCheckbox4');
-  const check5 = document.getElementById('myCheckbox5');
-  const check6 = document.getElementById('myCheckbox6');
-
-  if (
-    check1.checked == false &&
-    check2.checked == false &&
-    check3.checked == false &&
-    check4.checked == false &&
-    check5.checked == false &&
-    check6.checked == false
-  ) {
-    return `nisu uneti!`;
-  }
-
-  if (check1.checked == true) {
-    return `<img src="img/weather/sun.png" alt="" class="sun" width="30px" />`;
-  }
-  if (check2.checked == true) {
-    return `<img src="img/weather/sun_cloud.png" alt="" width="30px" />`;
-  }
-  if (check3.checked == true) {
-    return `<img src="img/weather/cloud.png" alt="" width="30px" />`;
-  }
-  if (check4.checked == true) {
-    return `<img src="img/weather/rain.png" alt="" width="30px" />`;
-  }
-  if (check5.checked == true) {
-    return `<img src="img/weather/snow.png" alt="" width="30px" />`;
-  }
-  if (check6.checked == true) {
-    return `<img src="img/weather/wind.png" alt="" width="30px" />`;
-  }
-};
-
-// prettier-ignore
-const months = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];
-const date = new Date();
-const day = date.getDate();
-const month = months[date.getMonth()];
-const year = date.getFullYear();
-const fullDate = `${day}. ${month} ${year}.`;
-
-let map, mapEvent;
-
-if (navigator.geolocation)
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      const { latitude } = position.coords;
-      const { longitude } = position.coords;
-      console.log(latitude, longitude);
-      console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
-
-      const coords = [latitude, longitude];
-
-      map = L.map('map').setView(coords, 9);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
-
-      map.on('click', function (mapE) {
-        mapEvent = mapE;
-        inputTip.focus();
-
-        // const { lat, lng } = mapEvent.latlng;
-
-        // L.marker([lat, lng])
-        //   .addTo(map)
-        //   .bindPopup(
-        //     L.popup({
-        //       maxWidth: 250,
-        //       minWidth: 100,
-        //       autoClose: false,
-        //       closeOnClick: false,
-        //       className: `${tip}-popup`,
-        //     })
-        //   )
-        //   .setPopupContent(`${tip}`)
-        //   .openPopup();
-        // console.log(`${tip}-popup`);
-      });
-    },
-    function () {
-      alert('Could not get your position!');
-    }
-  );
-
-icon.addEventListener('click', function () {
-  main.style.transition = 'all 2s';
-  main.classList.toggle('main-extend');
-});
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  let tip = inputTip.value;
-  let pozicija = inputPozicija.value;
-  let vreme = inputVreme.value;
-  let kolicina = inputKolicina.value;
-  let prosek = kolicina / vreme;
-  let id = Math.ceil(Math.random() * 100000);
-
-  const { lat, lng } = mapEvent.latlng;
-
-  L.marker([lat, lng])
-    .addTo(map)
-    .bindPopup(
-      L.popup({
-        maxWidth: 250,
-        minWidth: 100,
-        autoClose: false,
-        closeOnClick: false,
-        className: `${tip}-popup`,
-      })
-    )
-    .setPopupContent(`${tip}`)
-    .openPopup();
-
-  const html = `
-   <div class="results results_${tip}">
-    <ul class="resultsUl">
-      <li data-id="${id}">
-        <h3 class="result__title">${
-          tip.slice(0, 1).toUpperCase() + tip.slice(1)
-        },  ${fullDate}</h3>
-        <div class="result__details">
-          <span class="result__icon">🚩</span>
-          <span class="result__value">${pozicija}</span>
-          <span class="result__unit"></span>
-        </div>
-        <div class="result__details">
-          <span class="result__icon">⏱</span>
-          <span class="result__value">${vreme}</span>
-          <span class="result__unit">h</span>
-        </div>
-        <div class="result__details">
-          <span class="result__icon">🎣</span>
-          <span class="result__value">${kolicina}</span>
-          <span class="result__unit">kg</span>
-        </div>
-        <div class="result__details">
-          <span class="result__icon">⚡️</span>
-          <span class="result__value">${prosek.toFixed(2)}</span>
-          <span class="result__unit">kg/h</span>
-        </div>
-        <div class="result__details">
-        <span class="result__icon">Vremenski uslovi:</span>
-        <span class="result__value">${vremenskiUslovi()}</span>
-        <span class="result__unit"></span>
-      </div>
-      </li> 
-    </ul>
-  </div> 
-  `;
-
-  res.insertAdjacentHTML('afterbegin', html);
-
-  form.reset();
-  inputTip.focus();
-});
-*/
 
 class Result {
   months = [
@@ -415,3 +248,173 @@ class App {
 }
 
 const app = new App();
+
+/*
+Starter code (before classes)
+
+const vremenskiUslovi = function () {
+  const check1 = document.getElementById('myCheckbox1');
+  const check2 = document.getElementById('myCheckbox2');
+  const check3 = document.getElementById('myCheckbox3');
+  const check4 = document.getElementById('myCheckbox4');
+  const check5 = document.getElementById('myCheckbox5');
+  const check6 = document.getElementById('myCheckbox6');
+
+  if (
+    check1.checked == false &&
+    check2.checked == false &&
+    check3.checked == false &&
+    check4.checked == false &&
+    check5.checked == false &&
+    check6.checked == false
+  ) {
+    return `nisu uneti!`;
+  }
+
+  if (check1.checked == true) {
+    return `<img src="img/weather/sun.png" alt="" class="sun" width="30px" />`;
+  }
+  if (check2.checked == true) {
+    return `<img src="img/weather/sun_cloud.png" alt="" width="30px" />`;
+  }
+  if (check3.checked == true) {
+    return `<img src="img/weather/cloud.png" alt="" width="30px" />`;
+  }
+  if (check4.checked == true) {
+    return `<img src="img/weather/rain.png" alt="" width="30px" />`;
+  }
+  if (check5.checked == true) {
+    return `<img src="img/weather/snow.png" alt="" width="30px" />`;
+  }
+  if (check6.checked == true) {
+    return `<img src="img/weather/wind.png" alt="" width="30px" />`;
+  }
+};
+
+// prettier-ignore
+const months = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];
+const date = new Date();
+const day = date.getDate();
+const month = months[date.getMonth()];
+const year = date.getFullYear();
+const fullDate = `${day}. ${month} ${year}.`;
+
+let map, mapEvent;
+
+if (navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+      console.log(latitude, longitude);
+      console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+
+      const coords = [latitude, longitude];
+
+      map = L.map('map').setView(coords, 9);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      map.on('click', function (mapE) {
+        mapEvent = mapE;
+        inputTip.focus();
+
+        // const { lat, lng } = mapEvent.latlng;
+
+        // L.marker([lat, lng])
+        //   .addTo(map)
+        //   .bindPopup(
+        //     L.popup({
+        //       maxWidth: 250,
+        //       minWidth: 100,
+        //       autoClose: false,
+        //       closeOnClick: false,
+        //       className: `${tip}-popup`,
+        //     })
+        //   )
+        //   .setPopupContent(`${tip}`)
+        //   .openPopup();
+        // console.log(`${tip}-popup`);
+      });
+    },
+    function () {
+      alert('Could not get your position!');
+    }
+  );
+
+icon.addEventListener('click', function () {
+  main.style.transition = 'all 2s';
+  main.classList.toggle('main-extend');
+});
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let tip = inputTip.value;
+  let pozicija = inputPozicija.value;
+  let vreme = inputVreme.value;
+  let kolicina = inputKolicina.value;
+  let prosek = kolicina / vreme;
+  let id = Math.ceil(Math.random() * 100000);
+
+  const { lat, lng } = mapEvent.latlng;
+
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+      L.popup({
+        maxWidth: 250,
+        minWidth: 100,
+        autoClose: false,
+        closeOnClick: false,
+        className: `${tip}-popup`,
+      })
+    )
+    .setPopupContent(`${tip}`)
+    .openPopup();
+
+  const html = `
+   <div class="results results_${tip}">
+    <ul class="resultsUl">
+      <li data-id="${id}">
+        <h3 class="result__title">${
+          tip.slice(0, 1).toUpperCase() + tip.slice(1)
+        },  ${fullDate}</h3>
+        <div class="result__details">
+          <span class="result__icon">🚩</span>
+          <span class="result__value">${pozicija}</span>
+          <span class="result__unit"></span>
+        </div>
+        <div class="result__details">
+          <span class="result__icon">⏱</span>
+          <span class="result__value">${vreme}</span>
+          <span class="result__unit">h</span>
+        </div>
+        <div class="result__details">
+          <span class="result__icon">🎣</span>
+          <span class="result__value">${kolicina}</span>
+          <span class="result__unit">kg</span>
+        </div>
+        <div class="result__details">
+          <span class="result__icon">⚡️</span>
+          <span class="result__value">${prosek.toFixed(2)}</span>
+          <span class="result__unit">kg/h</span>
+        </div>
+        <div class="result__details">
+        <span class="result__icon">Vremenski uslovi:</span>
+        <span class="result__value">${vremenskiUslovi()}</span>
+        <span class="result__unit"></span>
+      </div>
+      </li> 
+    </ul>
+  </div> 
+  `;
+
+  res.insertAdjacentHTML('afterbegin', html);
+
+  form.reset();
+  inputTip.focus();
+});
+*/
