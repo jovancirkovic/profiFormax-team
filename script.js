@@ -105,6 +105,7 @@ class App {
     form.addEventListener('submit', this.newResult.bind(this));
     icon.addEventListener('click', this.expand.bind(this));
     reset.addEventListener('click', this.deleteAll.bind(this));
+    res.addEventListener('click', this.moveToMarker.bind(this));
   }
 
   getPosition() {
@@ -184,7 +185,7 @@ class App {
     const html = `
     <div class="results results_${result.tip}">
      <ul class="resultsUl">
-       <li data-id="${result.id}">
+       <li class="result" data-id="${result.id}">
          <h3 class="result__title">${result.tip},  ${result.fullDate}</h3>
          <div class="result__details">
            <span class="result__icon">🚩</span>
@@ -223,6 +224,19 @@ class App {
   expand() {
     main.style.transition = 'all 2s';
     main.classList.toggle('main-extend');
+  }
+
+  moveToMarker(e) {
+    const el = e.target.closest('.result');
+
+    const result = this.results.find(res => res.id == el.dataset.id);
+
+    this.map.setView(result.coords, 9, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
   }
 
   setLocalStorage() {
